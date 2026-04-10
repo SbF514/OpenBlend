@@ -1,8 +1,18 @@
-# 🍸 OpenBlend Public
+# 🍸 OpenBlend
 
 **Pre-trained blended LLM that outperforms any single model — just add your API keys and go.**
 
-OpenBlend Public is the open-source distribution of our pre-trained blended LLM. We do the training, you get the benefit — using our proven [Steer-then-Verify](#how-it-works) methodology with ELO-ranked model combinations that consistently outperforms your best single model.
+OpenBlend is the open-source distribution of pre-trained blended LLM. We do the training, you get the benefit — using our proven [Steer-then-Verify](#how-it-works) methodology with ELO-ranked model combinations that consistently outperforms your best single model.
+
+## Getting the Pre-Trained ELO Database
+
+This repo contains **only the code**. To use OpenBlend, you need the pre-trained ELO database. Contact the maintainers to get the latest `trained/blend.db` file, or build from the main OpenBlend training repo.
+
+The `trained/` directory should contain:
+```
+trained/
+└── blend.db          # Pre-trained ELO rankings
+```
 
 ## 🚀 Quick Start
 
@@ -15,8 +25,8 @@ pip install openblend-public
 Or install from source:
 
 ```bash
-git clone https://github.com/your-org/openblend-public
-cd openblend-public
+git clone https://github.com/SbF514/OpenBlend.git
+cd OpenBlend
 pip install -e .
 ```
 

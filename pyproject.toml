@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "openblend-public"
+name = "openblend"
 version = "0.1.0"
 description = "🍸 Pre-trained blended LLM - Outperforms any single model by combining your premium model with free models via ELO-ranked Steer-then-Verify"
 readme = "README.md"
@@ -38,9 +38,9 @@ dependencies = [
 openblend = "openblend_public.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/jajabong/openblend-public"
-Repository = "https://github.com/jajabong/openblend-public"
-Issues = "https://github.com/jajabong/openblend-public/issues"
+Homepage = "https://github.com/SbF514/OpenBlend"
+Repository = "https://github.com/SbF514/OpenBlend.git"
+Issues = "https://github.com/SbF514/OpenBlend/issues"
 
 [tool.ruff]
 line-length = 100
