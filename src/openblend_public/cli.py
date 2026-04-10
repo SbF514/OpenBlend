@@ -52,7 +52,7 @@ def serve(
 def status() -> None:
     """Show active providers and ELO summary."""
     from openblend_public.config import get_config
-    from openblend_public.memory.elo import get_rankings, get_all_categories
+    from openblend_public.memory.store import get_rankings, get_all_categories
 
     cfg = get_config()
     slots = cfg.all_slots()

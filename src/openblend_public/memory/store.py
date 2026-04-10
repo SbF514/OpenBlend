@@ -74,6 +74,18 @@ class TraceStore:
             for r in rows
         ]
 
+    def get_all_categories(self) -> list[str]:
+        conn = self._get_conn()
+        rows = conn.execute("SELECT DISTINCT task_type FROM provider_elo").fetchall()
+        return [r[0] for r in rows]
+
+    def best_provider_for(self, task_type: str = "general") -> tuple[str, str] | None:
+        rankings = self.get_elo_rankings(task_type)
+        if not rankings:
+            return None
+        top = rankings[0]
+        return (top["provider"], top["model"])
+
     def close(self) -> None:
         if self._conn:
             self._conn.close()
@@ -88,3 +100,18 @@ def get_store() -> TraceStore:
     if _store is None:
         _store = TraceStore()
     return _store
+
+
+def get_rankings(task_type: str = "general") -> list[dict]:
+    store = get_store()
+    return store.get_elo_rankings(task_type) or []
+
+
+def get_all_categories() -> list[str]:
+    store = get_store()
+    return store.get_all_categories()
+
+
+def best_provider_for(task_type: str = "general") -> tuple[str, str] | None:
+    store = get_store()
+    return store.best_provider_for(task_type)

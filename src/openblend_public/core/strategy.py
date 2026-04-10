@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 import random
 from openblend_public.core.types import BlendMode, Intent, ProviderSlot, Strategy, Tier
-from openblend_public.memory.elo import get_rankings, best_provider_for
+from openblend_public.memory.store import get_rankings, best_provider_for
 
 logger = logging.getLogger("openblend_public.core.strategy")
 
