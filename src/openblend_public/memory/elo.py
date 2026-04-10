@@ -1,24 +1,10 @@
-"""ELO ranking system — per-provider, per-model, per-task-type dynamic scoring."""
+"""ELO ranking system — per-provider, per-model, per-task-type lookup for pre-trained rankings."""
 
 from __future__ import annotations
 import logging
 from openblend_public.memory.store import get_store
 
 logger = logging.getLogger("openblend_public.memory.elo")
-
-
-def record_win(provider: str, model: str, task_type: str = "general") -> float:
-    store = get_store()
-    new_elo = store.update_elo(provider, model, task_type, won=True)
-    logger.info("ELO win: %s/%s [%s] -> %.0f", provider, model, task_type, new_elo)
-    return new_elo
-
-
-def record_loss(provider: str, model: str, task_type: str = "general") -> float:
-    store = get_store()
-    new_elo = store.update_elo(provider, model, task_type, won=False)
-    logger.info("ELO loss: %s/%s [%s] -> %.0f", provider, model, task_type, new_elo)
-    return new_elo
 
 
 def get_rankings(task_type: str = "general") -> list[dict]:

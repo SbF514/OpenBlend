@@ -2,17 +2,9 @@
 
 **Pre-trained blended LLM that outperforms any single model — just add your API keys and go.**
 
-OpenBlend is the open-source distribution of pre-trained blended LLM. We do the training, you get the benefit — using our proven [Steer-then-Verify](#how-it-works) methodology with ELO-ranked model combinations that consistently outperforms your best single model.
+OpenBlend is the open-source distribution of **pre-trained blended LLM**. We (jajabong/OpenBlend) do the training, you get the benefit — using our proven [Steer-then-Verify](#how-it-works) methodology with ELO-ranked model combinations that consistently outperforms your best single model.
 
-## Getting the Pre-Trained ELO Database
-
-This repo contains **only the code**. To use OpenBlend, you need the pre-trained ELO database. Contact the maintainers to get the latest `trained/blend.db` file, or build from the main OpenBlend training repo.
-
-The `trained/` directory should contain:
-```
-trained/
-└── blend.db          # Pre-trained ELO rankings
-```
+The pre-trained ELO rankings are **already included** in this repository. You just add your API keys and start using the blend.
 
 ## 🚀 Quick Start
 
