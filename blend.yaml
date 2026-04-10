@@ -1,0 +1,93 @@
+# 🍸 OpenBlend Public — Pre-trained Blended LLM Configuration
+# Users: Fill in your API keys in .env, then run `openblend serve`
+# Maintainers: This is the exported configuration from the main training repo
+
+providers:
+  # --- PREMIUM MAIN MODEL (YOU provide the API key in .env) ---
+  - name: baosi-claude
+    base_url: https://newapi.baosiapi.com/v1
+    api_key_env: BAOSI_API_KEY
+    timeout: 180
+    models:
+      - id: "claude-opus-4-6"
+        cost_input: 15.0
+        cost_output: 75.0
+        tier: premium
+      - id: "claude-sonnet-4-6"
+        cost_input: 3.0
+        cost_output: 15.0
+        tier: premium
+
+  # --- KILO GATEWAY FREE (You provide API key in .env) ---
+  - name: kilo-gateway-free
+    base_url: https://api.kilo.ai/api/gateway
+    api_key_env: KILO_API_KEY
+    timeout: 60
+    models:
+      - id: "x-ai/grok-code-fast-1:optimized:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "corethink:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "arcee-ai/trinity-large-thinking:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "kilo-auto/free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "bytedance-seed/dola-seed-2.0-pro:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "stepfun/step-3.5-flash:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+
+  # --- OPENROUTER FREE (You provide API key in .env) ---
+  - name: openrouter-free
+    base_url: https://openrouter.ai/api/v1
+    api_key_env: OPENROUTER_API_KEY
+    timeout: 120
+    models:
+      - id: "meta-llama/llama-3.3-70b-instruct:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "qwen/qwen3.6-plus:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "google/gemma-3-27b-it:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "nvidia/nemotron-3-super-120b-a12b:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "minimax/minimax-m2.5:free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+      - id: "openrouter/free"
+        cost_input: 0.0
+        cost_output: 0.0
+        tier: free
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  debug: false
+  cors_origins: ["*"]
+
+blend:
+  default_mode: best
+  judge_pass_threshold: 0.75
+  max_refine_rounds: 2
+  monthly_budget: null
